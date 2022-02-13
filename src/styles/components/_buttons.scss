@@ -33,6 +33,17 @@
     }
 }
 
+.btn-danger {
+    background-color: $red;
+    border-radius: 2px;
+    text-align: center;
+
+
+    &:hover { 
+        background-color: darken($color: $red, $amount: 15);
+    }
+}
+
 .btn-block {
     width: 100%;
 }

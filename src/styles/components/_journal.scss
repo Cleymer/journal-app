@@ -47,6 +47,14 @@
     overflow-y: scroll;
 }
 
+.journal__empty {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
 .journal__entry {
     background-color: white;
     border-radius: 4px;

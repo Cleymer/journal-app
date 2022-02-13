@@ -12,6 +12,7 @@ import { JournalScreen } from '../components/journal/JournalScreen';
 import { PrivateRoute } from './PrivateRoute';
 import { login } from '../actions/auth';
 import { PublicRoute } from './PublicRoute';
+import { startLoadingNotes } from '../actions/notes';
 
 export const AppRouter = () => {
 
@@ -25,7 +26,11 @@ export const AppRouter = () => {
         
         firebase.auth().onAuthStateChanged(async(user) => {
             if(user?.uid){
+                
                 dispatch(login(user.uid, user.displayName));
+
+                dispatch( startLoadingNotes(user.uid) );
+
                 setIsLoggedIn(true);
                 setChecking(false);
 

@@ -1,8 +1,29 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { activeNote } from '../../actions/notes';
 
-export const JournalEntry = () => {
+export const JournalEntry = ({
+    id,
+    title,
+    body,
+    date,
+    url
+}) => {
+
+    const dispatch = useDispatch();
+
+    const handleActiveNote = () => {
+        
+        dispatch( activeNote(id, {
+            title, body, date, url
+        }) );
+    }
+
     return (
-        <div className="journal__entry pointer">
+        <div 
+            className="journal__entry pointer"
+            onClick={handleActiveNote}
+        >
             
             <div 
                 className="journal__entry-picture"
@@ -14,10 +35,10 @@ export const JournalEntry = () => {
 
             <div className="journal__entry-body">
                 <p className="journal__entry-title">
-                    Un nuevo día
+                    {title}
                 </p>
                 <p className="journal__entry-content">
-                    Reprehenderit id in duis consectetur deserunt veniam fugiat.
+                    {body}
                 </p>
             </div>
 
