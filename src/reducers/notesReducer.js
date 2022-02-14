@@ -35,8 +35,7 @@ export const notesReducer = ( state = initialState, action ) => {
                 notes: [],
                 active: null
             }
-        case types.notesFileUrl:
-            break;  
+
         case types.notesUpdated:
             return {
                 ...state,
